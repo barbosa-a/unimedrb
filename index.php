@@ -129,7 +129,7 @@
             </div>
           </div><!-- End Why Box -->
 
-          <div class="col-lg-8 d-flex align-items-stretch">
+          <div class="col-lg-8 d-flex align-items-end">
             <div class="d-flex flex-column justify-content-center">
               <div class="row gy-4">
 
