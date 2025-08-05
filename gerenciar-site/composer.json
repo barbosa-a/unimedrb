@@ -1,0 +1,13 @@
+{
+    "name": "kalve/template",
+    "description": "Template de login",
+    "authors": [
+        {
+            "name": "Kalleb Alves"
+        }
+    ],
+    "require": {
+        "chillerlan/php-qrcode": "^4.3",
+        "phpmailer/phpmailer": "^6.8"
+    }
+}

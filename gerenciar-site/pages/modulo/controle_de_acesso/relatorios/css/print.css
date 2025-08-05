@@ -1,0 +1,15 @@
+@page {
+  size: auto;
+  margin: auto;
+}
+@media print {
+  html, body {
+    min-width: 210mm;
+    min-height: 297mm;
+    font-family:courier,arial,helvetica;
+  }
+  #table{
+    font-size: 10pt;
+    }
+  /* ... the rest of the rules ... */
+} 

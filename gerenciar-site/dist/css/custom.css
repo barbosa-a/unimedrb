@@ -1,0 +1,32 @@
+.control-card-prev{
+	font-size: 20px;
+}
+
+.control-card-next{
+	font-size: 20px;
+}
+
+.estrelas input[type=radio] {
+  display: none;  
+}
+.estrelas label i.fa{
+  font-size: 2.5em;  
+}
+.estrelas label i.fa:before {
+  content:'\f005';
+  color: #007bff;
+}
+.estrelas input[type=radio]:checked ~ label i.fa:before {
+  color: #ccc;  
+}
+
+.preloader-custom {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../../dist/img/preloader/preloader.svg') center no-repeat;
+  z-index: 9999;
+}
