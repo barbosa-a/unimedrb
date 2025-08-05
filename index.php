@@ -231,7 +231,7 @@
                 <i class="fas fa-credit-card"></i>
               </div>
               <a href="#" class="stretched-link">
-                <h3>Desconto</h3>
+                <h3>Descontos</h3>
               </a>
               <p>Desconto nas principais redes de farmácia da região</p>
             </div>
@@ -293,7 +293,7 @@
                 <i class="fas fa-hospital-user"></i>
               </div>
               <a href="#" class="stretched-link">
-                <h3>Atendimento</h3>
+                <h3>Atendimentos</h3>
               </a>
               <p>Atendimento 24h para orientações.</p>
               <a href="#" class="stretched-link"></a>
