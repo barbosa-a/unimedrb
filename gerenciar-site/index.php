@@ -24,7 +24,6 @@ include_once("lib/ModBaseConhecimento.php");
 include_once("lib/ModControleAcesso.php");
 include_once("lib/ModInformativo.php");
 include_once("lib/ModPagamento.php");
-include_once("lib/ModQuiz.php");
 
 //Load Composer's autoloader
 require 'vendor/autoload.php';
