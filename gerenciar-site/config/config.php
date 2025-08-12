@@ -6,7 +6,7 @@ header("Strict-Transport-Security: max-age=31536000; includeSubDomains");
 
 date_default_timezone_set('America/Rio_Branco');
 $url_host = filter_input(INPUT_SERVER, 'HTTP_HOST');
-$site = "landing-page-unimedrb";
+$site = "unimedrb";
 
 if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
     $protocol = 'https';
