@@ -4,9 +4,9 @@ if(!isset($seguranca)){
 }
 
 $servidor = "localhost";
-$usuario  = "gerenciarSite";
-$senha    = "N75AdfsDzw4tM72i";
-$banco    = "gerenciar_site";
+$usuario  = "unimedrb-landing-page";
+$senha    = "PmpCPnkFGiss6EbZ";
+$banco    = "unimedrb-landing-page";
 
 //criar conexao
 $conn = mysqli_connect($servidor, $usuario, $senha, $banco);
