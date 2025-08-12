@@ -16,8 +16,8 @@ if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
 } else {
     $protocol = 'http';
 
-    define('pg', "$protocol://$url_host/gerenciar-site");
-    define('site', "$protocol://$url_host/");
+    define('pg', "$protocol://$url_host/$site/gerenciar-site");
+    define('site', "$protocol://$url_host/$site/");
 }
 
 define('nomeSistema', 'Área Restrita');
