@@ -16,8 +16,8 @@
             ON 
                 us.unidade_id = un.id_uni
             WHERE 
-                us.unidade_id = '$unidade'
-            GROUP BY un.id_uni ";
+                us.unidade_id = $unidade
+        ";
         $query_cons_unidade = mysqli_query($conn, $cons_unidade);
         //$num_uni = mysqli_num_rows($query_cons_unidade);
         if(($query_cons_unidade) AND ($query_cons_unidade->num_rows !=0)){ 
@@ -45,11 +45,11 @@
             $url_destino = pg . "/pages/modulo/controle_de_acesso/controle_de_acesso";
             echo '<script> location.replace("' . $url_destino . '"); </script>';
         } else {
-            //deletar unidade
-            $del_unidade = "DELETE FROM unidade WHERE id_uni = '$unidade' ";
-            $query_del_unidade = mysqli_query($conn, $del_unidade);
-            //mensagem
-            if (mysqli_affected_rows($conn) != 0) {
+            try {
+                //deletar unidade
+                $del_unidade = "DELETE FROM unidade WHERE id_uni = $unidade ";
+                $query_del_unidade = mysqli_query($conn, $del_unidade);
+
                 $_SESSION['msg'] = '
                 <div class="modal fade" id="procmsg" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -71,8 +71,8 @@
                 </div>
                 ';
                 $url_destino = pg . "/pages/modulo/controle_de_acesso/controle_de_acesso";
-                echo '<script> location.replace("' . $url_destino . '"); </script>';                        
-            } else {
+                echo '<script> location.replace("' . $url_destino . '"); </script>';     
+            } catch (Exception $e) {
                 $_SESSION['msg'] = '
                 <div class="modal fade" id="procmsg" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -84,7 +84,7 @@
                                 </button>
                             </div>
                             <div class="modal-body m-3">
-                                <p class="mb-0 text-center">Não foi possivel excluir o registro!</p>
+                                <p class="mb-0 text-center">Não foi possivel excluir o registro: '.$e->getMessage().'</p>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
@@ -95,7 +95,7 @@
                 ';
                 $url_destino = pg . "/pages/modulo/controle_de_acesso/controle_de_acesso";
                 echo '<script> location.replace("' . $url_destino . '"); </script>';
-            }            
+            }          
         }
         
     } else {

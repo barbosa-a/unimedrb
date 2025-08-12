@@ -15,7 +15,7 @@ $query = "SELECT
     DATE_FORMAT(dtInicio, '%d/%m/%Y') AS inicio,
     DATE_FORMAT(dtFim, '%d/%m/%Y') AS fim,
     DATE_FORMAT(created, '%d/%m/%Y') AS criado 
-    FROM site_pub_destaque WHERE id != 1 ORDER BY dtInicio DESC
+    FROM site_pub_destaque ORDER BY dtInicio DESC
 ";
 $result = $conn->query($query);
 

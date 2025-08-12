@@ -18,7 +18,7 @@ $query = "SELECT
     tb.obs,
     DATE_FORMAT(tb.created, '%d/%m/%Y') AS data 
     FROM site_banners tb 
-    INNER JOIN unidade un ON un.id_uni = tb.unidade_id WHERE CURDATE() >= tb.dt_inicio AND CURDATE() <= tb.dt_fim ORDER BY tb.ordem ASC
+    INNER JOIN unidade un ON un.id_uni = tb.unidade_id ORDER BY tb.ordem ASC
 ";
 $result = $conn->query($query);
 

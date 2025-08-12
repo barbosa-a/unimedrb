@@ -786,6 +786,21 @@ function imprimir() {
     document.body.appendChild(oHiddFrame);
 }
 
+function printSimulacao() {
+    var dtinicio = $("#dtinicio").val();
+    var dtfim = $("#dtfim").val();
+    var oHiddFrame = document.createElement("iframe");
+    oHiddFrame.onload = setPrint;
+    oHiddFrame.style.position = "fixed";
+    oHiddFrame.style.right = "0";
+    oHiddFrame.style.bottom = "0";
+    oHiddFrame.style.width = "0";
+    oHiddFrame.style.height = "0";
+    oHiddFrame.style.border = "0";
+    oHiddFrame.src = "print/simulacao.php?dtinicio=" + dtinicio + "&dtfim=" + dtfim;
+    document.body.appendChild(oHiddFrame);
+}
+
 function gerarRelatorio(relatorio) {
     var oHiddFrame = document.createElement("iframe");
     oHiddFrame.onload = setPrint;

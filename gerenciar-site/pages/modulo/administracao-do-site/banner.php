@@ -66,7 +66,7 @@ if (!isset($seguranca)) {
                             <div class="form-row">
                                 <div class="form-group col">
                                     <label for="Titulo">Titulo</label>
-                                    <input type="text" class="form-control textcase" name="titulo" required autocomplete="off" autofocus placeholder="Titulo" onblur="formatanome(this.value)">
+                                    <input type="text" class="form-control textcase" name="titulo" autocomplete="off" autofocus placeholder="Titulo" onblur="formatanome(this.value)">
                                 </div>
 
                                 <div class="form-group col-md-3">
@@ -120,7 +120,7 @@ if (!isset($seguranca)) {
                             <div class="form-row">
                                 <div class="form-group col">
                                     <label for="Titulo">Titulo</label>
-                                    <input type="text" class="form-control textcase" name="tituloCardOne" autocomplete="off" placeholder="Titulo do card" onblur="formatanome(this.value)">
+                                    <input type="text" class="form-control" name="tituloCardOne" autocomplete="off" placeholder="Titulo do card" onblur="formatanome(this.value)">
                                 </div>
 
                                 <div class="form-group col-md-3">

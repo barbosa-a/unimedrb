@@ -551,7 +551,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="<?php echo pg; ?>/dist/js/baseConhecimento.js"></script>
   <script src="<?php echo pg; ?>/dist/js/informativo.js"></script>
   <script src="<?php echo pg; ?>/dist/js/pagamento.js"></script>
-  <script src="<?php echo pg; ?>/dist/js/quiz.js"></script>
   <script src="<?php echo pg; ?>/dist/js/mod-site.js"></script>
 </body>
 
