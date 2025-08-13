@@ -8,7 +8,8 @@ date_default_timezone_set('America/Rio_Branco');
 $url_host = filter_input(INPUT_SERVER, 'HTTP_HOST');
 $site = "unimedrb";
 
-if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https' && isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
+    $_SERVER['HTTPS'] = 'on';
     $protocol = 'https';
 
     define('pg', "$protocol://$url_host/gerenciar-site");
