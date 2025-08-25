@@ -789,6 +789,7 @@ function imprimir() {
 function printSimulacao() {
     var dtinicio = $("#dtinicio").val();
     var dtfim = $("#dtfim").val();
+    var status = $("#status").val();
     var oHiddFrame = document.createElement("iframe");
     oHiddFrame.onload = setPrint;
     oHiddFrame.style.position = "fixed";
@@ -797,7 +798,7 @@ function printSimulacao() {
     oHiddFrame.style.width = "0";
     oHiddFrame.style.height = "0";
     oHiddFrame.style.border = "0";
-    oHiddFrame.src = "print/simulacao.php?dtinicio=" + dtinicio + "&dtfim=" + dtfim;
+    oHiddFrame.src = "print/simulacao.php?dtinicio=" + dtinicio + "&dtfim=" + dtfim + "&status=" + status;
     document.body.appendChild(oHiddFrame);
 }
 

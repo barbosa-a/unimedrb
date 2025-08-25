@@ -1853,6 +1853,106 @@ function apagarFaq(id) {
   });
 }
 
+function apagarSimulacao(id) {
+  Swal.fire({
+    title: "Deseja excluir este registro?",
+    showDenyButton: false,
+    showCancelButton: true,
+    confirmButtonText: "Apagar",
+    denyButtonText: `Don't save`
+  }).then((result) => {
+    /* Read more about isConfirmed, isDenied below */
+    if (result.isConfirmed) {
+
+      fetch('apagar/processa/proc_del_simulacao.php', {
+        method: 'POST', // Define o método HTTP como POST
+        headers: {
+          'Content-Type': 'application/json' // Especifica o tipo de conteúdo enviado
+        },
+        body: JSON.stringify({ // Converte o objeto para JSON
+          id: id
+        })
+      })
+        .then(response => response.json()) // Converte a resposta para JSON
+        .then(data => {
+
+          loadSimulacao();
+
+          Swal.fire({
+            position: "center",
+            icon: data.tipo,
+            title: data.titulo,
+            text: data.msg,
+            showConfirmButton: false,
+            timer: 2500
+          });
+
+        }) // Manipula os dados retornados
+        .catch(error => {
+
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Ops...",
+            text: error,
+            showConfirmButton: false,
+            timer: 2500
+          });
+
+        }); // Trata erros
+
+    } else if (result.isDenied) {
+      Swal.fire("Changes are not saved", "", "info");
+    }
+  });
+}
+
+function marcarComoRecebido(id) {
+  Swal.fire({
+    title: "Deseja adicionar uma observação?",
+    input: "text",
+    inputAttributes: {
+      autocapitalize: "off"
+    },
+    showCancelButton: true,
+    confirmButtonText: "Marcar",
+    showLoaderOnConfirm: true,
+    preConfirm: async (message) => {
+
+      try {
+        const response = await fetch("editar/processa/proc_marcar_recebida.php", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          body: `id=${encodeURIComponent(id)}&message=${encodeURIComponent(message)}`
+        });
+
+        const data = await response.json();
+        if (!response.ok || !data.success) {
+          throw new Error(data.message || "Erro ao atualizar simulação.");
+        }
+
+        loadSimulacao();
+
+        return data;
+      } catch (error) {
+        Swal.showValidationMessage(`Erro: ${error.message}`);
+      }
+    },
+    allowOutsideClick: () => !Swal.isLoading()
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire({
+        title: "Sucesso!",
+        text: "Simulação recebida com sucesso",
+        icon: "success"
+      });
+    }
+  });
+}
+
+
 function loadSimulacao() {
     // Chamada AJAX para buscar as imagens
     fetch('consultas/get-simulacao.php') // Altere para o caminho correto do seu arquivo PHP
@@ -1879,7 +1979,17 @@ function loadSimulacao() {
                         </td>
                         <td>${image.criado}</td>
                         <td>
-                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#visuSimu${image.id}">Visualizar</button>
+                            <div class="btn-group dropleft">
+                                <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" data-toggle="dropdown" aria-expanded="false">
+                                    Menu
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#visuSimu${image.id}">Visualizar</a>
+                                    <a class="dropdown-item" href="#" onclick="marcarComoRecebido(${image.id})">Marcar como recebido</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#" onclick="apagarSimulacao(${image.id})">Excluir</a>
+                                </div>
+                            </div>
                         </td>
                     </tr>
 

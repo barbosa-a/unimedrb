@@ -22,7 +22,7 @@ $query = "SELECT
     nomeContato,
     telefone,
     DATE_FORMAT(created, '%d/%m/%Y às %H:%i:%s') AS criado
-    FROM site_simulacao ORDER BY id DESC
+    FROM site_simulacao WHERE status = 'Aguardando' ORDER BY id DESC
 ";
 $result = $conn->query($query);
 

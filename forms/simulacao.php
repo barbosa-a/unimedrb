@@ -24,8 +24,8 @@
 
 	try {
 
-		$query = "INSERT INTO site_simulacao (cidade, ass_medica, sexo, faixaEtaria, qtd, nomeEmpresa, cnpj, email, nomeContato, telefone, created) 
-			VALUES ('{$form['city']}', '{$form['assMed']}', '{$form['sexo']}', '{$form['faixaEtaria']}', '{$form['qtd']}', '{$form['nomeEmpresa']}', '{$form['cnpj']}', '{$form['email']}', '{$form['nomeContato']}', '{$form['tel']}', NOW())
+		$query = "INSERT INTO site_simulacao (cidade, ass_medica, sexo, faixaEtaria, qtd, nomeEmpresa, cnpj, email, nomeContato, telefone, status, created) 
+			VALUES ('{$form['city']}', '{$form['assMed']}', '{$form['sexo']}', '{$form['faixaEtaria']}', '{$form['qtd']}', '{$form['nomeEmpresa']}', '{$form['cnpj']}', '{$form['email']}', '{$form['nomeContato']}', '{$form['tel']}', 'Aguardando', NOW())
 		";
 		$result = $conn->query($query);
 

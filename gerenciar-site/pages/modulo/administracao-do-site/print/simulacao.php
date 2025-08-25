@@ -7,9 +7,10 @@ include_once("../../../../config/conexao.php");
 include_once("../../../../lib/lib_funcoes.php");
 
 $dataInicio = filter_input(INPUT_GET, 'dtinicio', FILTER_DEFAULT);
-$dataFinal     = filter_input(INPUT_GET, 'dtfim', FILTER_DEFAULT);
+$dataFinal  = filter_input(INPUT_GET, 'dtfim', FILTER_DEFAULT);
+$status     = filter_input(INPUT_GET, 'status', FILTER_DEFAULT);
 
-if ((empty($dataInicio)) and (empty($dataFinal))) {
+if ((empty($dataInicio)) and (empty($dataFinal)) and (empty($status))) {
     die("Preencha todos os campos para continuar com a pesquisa");
 }
 
@@ -26,7 +27,7 @@ $query = "SELECT
         nomeContato,
         telefone,
         DATE_FORMAT(created, '%d/%m/%Y às %H:%i:%s') AS criado
-        FROM site_simulacao WHERE date(created) >= '$dataInicio' AND date(created) <= '$dataFinal'
+        FROM site_simulacao WHERE date(created) >= '$dataInicio' AND date(created) <= '$dataFinal' AND status = '$status'
     ";
 $result = $conn->query($query);
 $linha = 1;
@@ -66,6 +67,7 @@ $linha = 1;
         <div class="starter-template">
             <h1>Simulações</h1>
             <p class="lead">Periodo: <?php echo date('d/m/Y', strtotime($dataInicio)) . " à " . date('d/m/Y', strtotime($dataFinal)) ?> </p>
+            <p>Status: <?php echo $status ?></p>
         </div>
 
         <table class="table table-bordered table-sm">

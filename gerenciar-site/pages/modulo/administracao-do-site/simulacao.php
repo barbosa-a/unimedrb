@@ -73,6 +73,14 @@ if (!isset($seguranca)) {
                                     <input type="date" class="form-control" id="dtfim" required>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label for="Status">Status</label>
+                                    <select class="form-control" id="status" required>
+                                    <option value="Aguardando" selected>Fila</option>
+                                    <option value="Recebido">Lidas</option>
+                                    <option value="Excluido">Excluidas</option>
+                                </select>
+                            </div>
                         </form>
                     </div>
                     <div class="modal-footer">
