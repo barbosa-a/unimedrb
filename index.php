@@ -76,12 +76,13 @@
     <div class="branding d-flex align-items-center">
 
       <div class="container position-relative d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <a href="" class="logo d-flex align-items-center me-auto">
           <!-- Uncomment the line below if you also wish to use an image logo -->
-          <img src="assets/img/unimed.png" alt=""> 
+          <img class="img-1" src="assets/img/unimed.png" alt=""> 
+          <img class="img-2" src="assets/img/SomosCoop.png"> 
           <!--<h1 class="sitename">Medilab</h1>-->
         </a>
-
+        
         <nav id="navmenu" class="navmenu">
           <ul>
             <li><a href="#home" class="active">Home<br></a></li>

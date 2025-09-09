@@ -301,10 +301,20 @@ h6 {
 .header .logo {
   line-height: 1;
 }
-
+/*
 .header .logo img {
   max-height: 60px;
   margin-right: 8px;
+}
+*/
+.header .logo .img-1 {
+  max-height: 60px;
+  margin-right: 8px;
+}
+
+.header .logo .img-2 {
+  max-width: 100px;
+  max-height: 60px;
 }
 
 .header .logo h1 {
