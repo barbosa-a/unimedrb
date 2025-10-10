@@ -1,18 +1,18 @@
 <?php
-  $seguranca = true;  
-  include_once "./gerenciar-site/config/config.php";
-  include_once "./gerenciar-site/config/conexao.php";
-  include_once "./gerenciar-site/lib/lib_site.php";
+$seguranca = true;
+include_once "./gerenciar-site/config/config.php";
+include_once "./gerenciar-site/config/conexao.php";
+include_once "./gerenciar-site/lib/lib_site.php";
 
-  $contato = contatos($conn);
-  $redesocial = redesSociais($conn);
-  $banner = bannerSingle($conn);
-  $info1 = ads($conn, 'Anúncio 01');
-  $info2 = ads($conn, 'Anúncio 02');
-  $info3 = ads($conn, 'Anúncio 03');
-  $sobre = sobre($conn);
-  $sobreImg = sobreBannerSingle($conn);
-  $destaque = destaque($conn);
+$contato = contatos($conn);
+$redesocial = redesSociais($conn);
+$banner = bannerSingle($conn);
+$info1 = ads($conn, 'Anúncio 01');
+$info2 = ads($conn, 'Anúncio 02');
+$info3 = ads($conn, 'Anúncio 03');
+$sobre = sobre($conn);
+$sobreImg = sobreBannerSingle($conn);
+$destaque = destaque($conn);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,12 +20,29 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Unimed Rio Branco - Conheça o Plano Participativo</title>
+  <title>Unimed Rio Branco | Conheça o Plano Participativo</title>
   <meta name="description" content="O plano Participativo é o produto ideal para quem procura uma assistência médica de qualidade, com 86% de satisfação pelos clientes.
   Com ele, você garante acesso completo a todos os nossos serviços, pagando uma mensalidade reduzida e coparticipação somente quando o plano for utilizado.
   Um plano de saúde que permite mais controle financeiro e economia para você, sua família e seus colaboradores.
   ">
   <meta name="keywords" content="Unimedrb, Unimed Rio Branco, Plano de saúde, plano corporativo">
+
+  <!-- Meta tags Open Graph (para redes sociais) -->
+  <meta property="og:title" content="Unimed Rio Branco | Conheça o Plano Participativo" />
+  <meta property="og:description" content="O plano Participativo é o produto ideal para quem procura uma assistência médica de qualidade, com 86% de satisfação pelos clientes.
+  Com ele, você garante acesso completo a todos os nossos serviços, pagando uma mensalidade reduzida e coparticipação somente quando o plano for utilizado.
+  Um plano de saúde que permite mais controle financeiro e economia para você, sua família e seus colaboradores." />
+  <meta property="og:image" content="https://vendas.unimedrb.com.br/assets/img/unimed.png" />
+  <meta property="og:url" content="https://vendas.unimedrb.com.br" />
+  <meta property="og:type" content="website" />
+
+  <!-- Meta tags para Twitter -->
+  <meta name="twitter:card" content="Unimed Rio Branco" />
+  <meta name="twitter:title" content="Unimed Rio Branco | Conheça o Plano Participativo" />
+  <meta name="twitter:description" content="O plano Participativo é o produto ideal para quem procura uma assistência médica de qualidade, com 86% de satisfação pelos clientes.
+  Com ele, você garante acesso completo a todos os nossos serviços, pagando uma mensalidade reduzida e coparticipação somente quando o plano for utilizado.
+  Um plano de saúde que permite mais controle financeiro e economia para você, sua família e seus colaboradores." />
+  <meta name="twitter:image" content="https://vendas.unimedrb.com.br/assets/img/unimed.png" />
 
   <!-- Favicons -->
   <link href="assets/img/favicon-unimed.png" rel="icon">
@@ -47,9 +64,29 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j,
+        f);
+    })(window, document, 'script', 'dataLayer', 'GTM-N7R7LDZZ');
+  </script>
+  <!-- End Google Tag Manager -->
+
   <!-- =======================================================
   * Template Name: Unimed Rio Branco
-  * Template URL: https://plano.unimedrb.com.br
+  * Template URL: https://vendas.unimedrb.com.br
   * Updated: 04/08/2025
   * Author: Company cloud
   ======================================================== -->
@@ -66,9 +103,9 @@
           <i class="bi bi-whatsapp d-flex align-items-center ms-4"><a href="https://wa.me/55<?php echo preg_replace('/[^0-9]/', '', $contato['numeroWpp']); ?>" target="_blank"><span><?php echo $contato['numeroWpp'] ?></span></a></i>
         </div>
         <div class="social-links d-none d-md-flex align-items-center">
-          <?php echo $redesocial['status_facebook'] == 'Ativo' ? '<a href="'.$redesocial['facebook'].'" target="_blank" class="facebook"><i class="bi bi-facebook"></i></a>' : '' ?>
-          <?php echo $redesocial['status_instagram'] == 'Ativo' ? '<a href="'.$redesocial['instagram'].'" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>' : '' ?>
-          <?php echo $redesocial['status_linkedin'] == 'Ativo' ? '<a href="'.$redesocial['linkedin'].'" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a>' : '' ?>
+          <?php echo $redesocial['status_facebook'] == 'Ativo' ? '<a href="' . $redesocial['facebook'] . '" target="_blank" class="facebook"><i class="bi bi-facebook"></i></a>' : '' ?>
+          <?php echo $redesocial['status_instagram'] == 'Ativo' ? '<a href="' . $redesocial['instagram'] . '" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>' : '' ?>
+          <?php echo $redesocial['status_linkedin'] == 'Ativo' ? '<a href="' . $redesocial['linkedin'] . '" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a>' : '' ?>
         </div>
       </div>
     </div><!-- End Top Bar -->
@@ -78,17 +115,17 @@
       <div class="container position-relative d-flex align-items-center justify-content-between">
         <a href="" class="logo d-flex align-items-center me-auto">
           <!-- Uncomment the line below if you also wish to use an image logo -->
-          <img class="img-1" src="assets/img/unimed.png" alt=""> 
-          <img class="img-2" src="assets/img/SomosCoop.png"> 
+          <img class="img-1" src="assets/img/unimed.png" alt="">
+          <img class="img-2" src="assets/img/SomosCoop.png">
           <!--<h1 class="sitename">Medilab</h1>-->
         </a>
-        
+
         <nav id="navmenu" class="navmenu">
           <ul>
             <li><a href="#home" class="active">Home<br></a></li>
             <li><a href="#unimed">Quem somos</a></li>
             <li><a href="#empreendedor">Empreendedor</a></li>
-            <li><a href="#services">Vantagens</a></li>            
+            <li><a href="#services">Vantagens</a></li>
             <li><a href="#faq">FAQ</a></li>
             <li><a href="#contact">Contato</a></li>
           </ul>
@@ -181,7 +218,7 @@
           <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
             <h3><?php echo $sobre['titulo'] ?></h3>
             <?php echo $sobre['sobre'] ?>
-            
+
           </div>
 
         </div>
@@ -195,12 +232,12 @@
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="row gy-4 gx-5">          
+        <div class="row gy-4 gx-5">
 
           <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
             <h3><?php echo $destaque['titulo'] ?></h3>
             <?php echo $destaque['descricao'] ?>
-            
+
           </div>
 
           <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="200">
@@ -387,7 +424,7 @@
               <input type="number" name="qtd" class="form-control" id="qtd" placeholder="Quantidade" required="" autocomplete="off">
             </div>
           </div>
-          
+
           <div class="mt-3">
             <div class="loading">Loading</div>
             <div class="error-message"></div>
@@ -409,11 +446,11 @@
             <div class="modal-body">
               <form class="row g-3" id="formDataDadosPessoais">
                 <div class="col-md-6">
-                  <label for="Nome da empresa" class="form-label">Nome da empresa</label>
+                  <label for="Nome da empresa" class="form-label">Nome da Fisica ou Jurídica</label>
                   <input type="text" class="form-control" id="nomeEmpresa" name="nomeEmpresa" required>
                 </div>
                 <div class="col-md-6">
-                  <label for="CNPJ" class="form-label">CNPJ</label>
+                  <label for="CNPJ" class="form-label">CPF/CNPJ</label>
                   <input type="number" class="form-control" id="cnpf" name="cnpj" required>
                 </div>
                 <div class="col-12">
@@ -428,14 +465,14 @@
                   <label for="Telefone" class="form-label">Telefone</label>
                   <input type="number" class="form-control" id="tel" name="tel" placeholder="Número com DDD" required>
                 </div>
-                
+
                 <div class="col-12">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                   <button type="submit" class="btn btn-green" id="btnSendSimulacao">Enviar</button>
                 </div>
               </form>
             </div>
-            
+
           </div>
         </div>
       </div>
@@ -459,7 +496,7 @@
             <div class="faq-container">
 
               <?php foreach (faq($conn) as $key => $faq) { ?>
-              
+
                 <div class="faq-item <?php echo $key == 0 ? "faq-active" : "" ?>">
                   <h3><?php echo $faq['pergunta'] ?></h3>
                   <div class="faq-content">
@@ -469,7 +506,7 @@
                 </div><!-- End Faq item-->
 
               <?php } ?>
-              
+
 
             </div>
 
@@ -481,7 +518,7 @@
 
     </section><!-- /Faq Section -->
 
-    
+
 
     <!-- Contact Section -->
     <section id="contact" class="contact section">
@@ -566,6 +603,12 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N7R7LDZZ" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
 </body>
 
