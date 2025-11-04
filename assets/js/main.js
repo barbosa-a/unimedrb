@@ -67,6 +67,9 @@ document.addEventListener("DOMContentLoaded", function () {
         //Notificação
         if (retorno.tipo == "success") {
           $('.sent-message').show();
+          setTimeout(function () {
+            window.location.href = './obrigado';
+          }, 2000);
         } else {
           $('.error-message').text(retorno.msg);
           $('.error-message').show();
