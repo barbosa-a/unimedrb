@@ -1,6 +1,8 @@
 <?php
 session_start();
-
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 header("X-Content-Type-Options: nosniff");
 header("X-Frame-Options: SAMEORIGIN");
 header("Strict-Transport-Security: max-age=31536000; includeSubDomains");
